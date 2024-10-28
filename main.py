@@ -48,21 +48,18 @@ class KMeansApp:
         # Load data and perform K-means clustering
         try:
             customers = Customer.load_customers_from_csv('raw_customers.csv')
-            cluster_counts, cluster_stats, self.clusters, self.centroids = Kmean(customers, k)
-            self.display_results(cluster_counts, cluster_stats)
+            cluster_stats, self.clusters, self.centroids = Kmean(customers, k)
+            self.display_results(cluster_stats)
         except FileNotFoundError:
             messagebox.showerror("File Not Found", "The file 'raw_customers.csv' was not found.")
 
-    def display_results(self, cluster_counts, cluster_stats):
+    def display_results(self, cluster_stats):
         # Clear previous results
         self.result_text.delete("1.0", tk.END)
 
-        # Display cluster counts
-        result = "Cluster Counts:\n"
-        for cluster_id, count in cluster_counts.items():
-            result += f"Cluster {cluster_id + 1}: {count} customers\n"
-        result += "\n"
-
+        # # Display cluster counts
+        result = ""
+    
         # Display statistics for each cluster
         result += "Cluster Statistics:\n"
         result += f"{'Cluster':<10}| {'Total':<10}| {'Avg Age':<10}| {'Avg Income':<15}| {'Avg Score':<12}| {'Female Ratio':<15}\n"

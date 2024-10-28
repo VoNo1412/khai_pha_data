@@ -13,6 +13,7 @@ def Kmean(customers, k):
         centroids.append(centroid)
 
 
+    print('centeoid______2312', centroids)
     # Step 1: Hàm xử lý chính k-mean
     changed = True
     while changed:
@@ -59,10 +60,6 @@ def Kmean(customers, k):
                     centroids[i] = new_centroid
                     changed = True
 
-    # Step 2: Đếm số khách hàng trong mỗi cluster
-    cluster_counts = {i: 0 for i in range(k)}  # khởi tạo đếm số lượng của mỗi cluster(cụm)
-    for i in range(k):
-        cluster_counts[i] = len(clusters[i])
 
     # Step 3: tính toán số lượng thống kê và phân tích cho từng cluster
     cluster_stats = []
@@ -78,4 +75,4 @@ def Kmean(customers, k):
             cluster_stats.append([total_files, avg_age, avg_income, avg_spending_score, female_ratio])
 
 
-    return cluster_counts, cluster_stats, clusters, centroids
+    return cluster_stats, clusters, centroids
