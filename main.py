@@ -69,8 +69,6 @@ class KMeansApp:
         
         self.result_text.insert(tk.END, result)
 
-   
-
     def plot_clusters(self, clusters, centroids):
         # Create a scatter plot for the clusters
         plt.figure(figsize=(10, 6))

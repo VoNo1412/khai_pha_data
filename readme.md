@@ -1,0 +1,2 @@
+# Tại sao phải cập nhật lại centroid (tâm cụm)?
+    + Quá trình cập nhật này giúp cải thiện độ chính xác của cụm bằng cách đảm bảo rằng centroid luôn đại diện tốt nhất cho tất cả các điểm dữ liệu trong cụm, từ đó tạo ra các nhóm chặt chẽ hơn và nhất quán hơn.

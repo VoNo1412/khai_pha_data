@@ -3,7 +3,7 @@ import random
 import math
 
 def Kmean(customers, k):
-    # Step 0: khởi tạo cluster và random centroids(tâm điểm) 
+    # Step 1: khởi tạo cluster và random centroids(tâm điểm) 
     clusters = []
     centroids = []
 
@@ -12,15 +12,13 @@ def Kmean(customers, k):
         centroid = [random.randint(0, 1), random.randint(0, 100), random.randint(0, 100), random.randint(0, 100)]
         centroids.append(centroid)
 
-
-    print('centeoid______2312', centroids)
-    # Step 1: Hàm xử lý chính k-mean
+    # Step 2: Hàm xử lý chính k-mean
     changed = True
     while changed:
         changed = False
         clusters = [[] for _ in range(k)]
 
-        # Step 1.1: Gán khách hàng cho tâm điểm có vị trị gần nhất 
+        # Step 2.1: Gán khách hàng cho tâm điểm có vị trị gần nhất 
         for customer in customers:
             closest_centroid_index = 0
             min_distance = float('inf')
@@ -42,7 +40,8 @@ def Kmean(customers, k):
 
             clusters[closest_centroid_index].append(customer)
 
-        # Step 1.2: Cập nhật cetroids(tâm điểm) dựa trên trung bình các thuộc tính của khách hàng 
+       
+        # Step 2.2: Cập nhật cetroids(tâm điểm) dựa trên trung bình các thuộc tính của khách hàng 
         # cho đến khi centroid không thay đổi nữa là kết thúc thuật toán
         for i in range(k):
             cluster = clusters[i]
